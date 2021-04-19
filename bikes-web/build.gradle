@@ -1,13 +1,5 @@
 plugins {
-    id 'java'
     id 'war'
-}
-
-group 'ro.ubb.bikes'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
 }
 
 war {
@@ -15,8 +7,8 @@ war {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
     compile project(':bikes-core')
 
@@ -29,7 +21,7 @@ dependencies {
 
 
 }
-
-test {
-    useJUnitPlatform()
-}
+//
+//test {
+//    useJUnitPlatform()
+//}
