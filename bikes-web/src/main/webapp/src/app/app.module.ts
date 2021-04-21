@@ -4,7 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BikesComponent } from './bikes/bikes.component';
-import { BikesListComponent } from './bikes/bikes-list/bikes-list.component';
+import { BikesListComponent } from './bikes/bike-list/bikes-list.component';
+import {BikeService} from "./bikes/shared/bike.service";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,9 +17,11 @@ import { BikesListComponent } from './bikes/bikes-list/bikes-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [BikeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
