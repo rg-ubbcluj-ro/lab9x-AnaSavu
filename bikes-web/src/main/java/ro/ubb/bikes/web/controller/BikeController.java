@@ -3,13 +3,16 @@ package ro.ubb.bikes.web.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ro.ubb.bikes.core.model.Bike;
+import ro.ubb.bikes.core.model.exceptions.ValidatorException;
 import ro.ubb.bikes.core.service.interfaces.BikeService;
 import ro.ubb.bikes.web.converter.BikeConverter;
 import ro.ubb.bikes.web.dto.BikeDto;
+import ro.ubb.bikes.web.dto.BikesListDto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,32 +25,67 @@ public class BikeController {
     @Autowired
     private BikeConverter bikeConverter;
 
+    @RequestMapping(value = "/bikes", method = RequestMethod.POST)
+    BikeDto addBike(@RequestBody BikeDto bikeDto) {
+        log.trace("addBike: dto={}", bikeDto);
 
-    @RequestMapping(value = "/bikes", method = RequestMethod.GET)
-    public List<BikeDto> getStudents() {
-        log.trace("getBikes");
+        var bike = bikeConverter.convertDtoToModel(bikeDto);
+        var addedBike = bikeService.add(bike);
+        var resultBike = bikeConverter.convertModelToDto(addedBike);
 
-        List<Bike> bikes = bikeService.getAll();
-
-        log.trace("getBikes: bikes={}", bikes);
-
-        return new ArrayList<>(bikeConverter.convertModelsToDtos(bikes));
+        log.trace("addBike: result={}", resultBike);
+        return resultBike;
     }
 
-    @RequestMapping(value = "/bikes/{bikeId}", method = RequestMethod.PUT)
-    public BikeDto updateBike(
-            @PathVariable final Long bikeId,
-            @RequestBody final BikeDto bikeDto) {
-        log.trace("updateBike: bikeId={}, bikeDtoMap={}", bikeId, bikeDto);
+    @RequestMapping(value = "/bikes/{id}", method = RequestMethod.DELETE)
+    ResponseEntity<?> deleteBike(@PathVariable Long id) {
+        log.trace("deleteBike: id={}", id);
+        bikeService.delete(id);
+        log.trace("deleteBike - method finished");
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-        Bike bike = bikeService.update(bikeId,
-                bikeDto.getSerialNumber(), bikeDto.getManufacturer(),
-                bikeDto.getColor(), bikeDto.getPrice());
+    @RequestMapping(value = "/bikes/{id}", method = RequestMethod.PUT)
+    BikeDto updateBike(@PathVariable Long id, @RequestBody BikeDto bikeDto) {
+        log.trace("updateBike: id={}, dto={}", id, bikeDto);
 
-        BikeDto result = bikeConverter.convertModelToDto(bike);
+        var bike = bikeConverter.convertDtoToModel(bikeDto);
+        var updatedBike = bikeService.update(bike);
+        var resultBike = bikeConverter.convertModelToDto(updatedBike);
 
-        log.trace("updateBike: result={}", result);
+        log.trace("updateBike: result={}", resultBike);
+        return resultBike;
+    }
 
+    @RequestMapping(value = "/bikes")
+    BikesListDto getAllBikes() {
+        return new BikesListDto(
+                bikeConverter.convertModelsToDtos(
+                        bikeService.getAll()
+                ));
+    }
+
+    @RequestMapping(value = "/bikes/filter", method = RequestMethod.GET)
+    BikesListDto filterBikesByPrice(@RequestParam Integer price) {
+        log.trace("filterBikesByPrice - method entered: price={}", price);
+
+        List<Bike> bikes = bikeService.filter(price);
+        List<BikeDto> bikesDtos = bikeConverter.convertModelsToDtos(bikes);
+        BikesListDto result = new BikesListDto(bikesDtos);
+
+        log.trace("filterBikesByPrice: result={}", result);
+        return result;
+    }
+
+    @RequestMapping(value = "/bikes/sort", method = RequestMethod.GET)
+    BikesListDto sortBikesBySerialNumber() {
+        log.trace("sortBikesBySerialNumber - method entered");
+
+        List<Bike> bikes = bikeService.sort();
+        List<BikeDto> bikesDtos = bikeConverter.convertModelsToDtos(bikes);
+        BikesListDto result = new BikesListDto(bikesDtos);
+
+        log.trace("sortBikesBySerialNumber: result={}", result);
         return result;
     }
 }

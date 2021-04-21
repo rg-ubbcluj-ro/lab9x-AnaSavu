@@ -7,9 +7,9 @@ import lombok.*;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class BikeDto extends BaseDto {
-    private String serialNumber;
-    private String manufacturer;
-    private String color;
-    private int price;
+public class RentalDto extends BaseDto{
+    private int daysRented;
+    private Long bikeID;
+    private Long clientID;
+    private Long employeeID;
 }
