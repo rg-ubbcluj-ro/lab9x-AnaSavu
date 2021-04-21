@@ -1,6 +1,5 @@
 package ro.ubb.bikes.core.model;
 
-
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -8,13 +7,12 @@ import javax.persistence.Entity;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class Bike extends BaseEntity<Long> {
-    private String serialNumber;
-    private String manufacturer;
-    private String color;
-    private int price;
+public class Rental extends BaseEntity<Long> {
+    private int daysRented;
+    private Long bikeID;
+    private Long clientID;
+    private Long employeeID;
 }
