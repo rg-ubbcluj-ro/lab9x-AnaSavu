@@ -12,6 +12,7 @@ import ro.ubb.bikes.web.converter.RentalConverter;
 import ro.ubb.bikes.web.dto.RentalDto;
 import ro.ubb.bikes.web.dto.RentalsListDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -58,9 +59,14 @@ public class RentalController {
         return resultRental;
     }
 
+//    @RequestMapping(value = "/rentals")
+//    RentalsListDto getAllRentals() {
+//        return new RentalsListDto(rentalConverter.convertModelsToDtos(rentalService.getAll()));
+//    }
+
     @RequestMapping(value = "/rentals")
-    RentalsListDto getAllRentals() {
-        return new RentalsListDto(rentalConverter.convertModelsToDtos(rentalService.getAll()));
+    List<RentalDto> getAllRentals() {
+        return new ArrayList<>(rentalConverter.convertModelsToDtos(rentalService.getAll()));
     }
 
     @RequestMapping(value = "/rentals/filter", method = RequestMethod.GET)

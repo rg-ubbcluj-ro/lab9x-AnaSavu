@@ -8,12 +8,24 @@ import { BikesListComponent } from './bikes/bike-list/bikes-list.component';
 import {BikeService} from "./bikes/shared/bike.service";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { ClientsComponent } from './clients/clients.component';
+import { ClientListComponent } from './clients/client-list/client-list.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
+import { RentalsComponent } from './rentals/rentals.component';
+import { RentalListComponent } from './rentals/rental-list/rental-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BikesComponent,
-    BikesListComponent
+    BikesListComponent,
+    ClientsComponent,
+    ClientListComponent,
+    EmployeesComponent,
+    EmployeeListComponent,
+    RentalsComponent,
+    RentalListComponent
   ],
   imports: [
     BrowserModule,
