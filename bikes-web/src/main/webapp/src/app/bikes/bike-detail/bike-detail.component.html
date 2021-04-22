@@ -1,0 +1,25 @@
+<div *ngIf="bike">
+  <h2>Bike {{bike.serialNumber}} details</h2>
+  <div>
+    <label>ID: </label> {{bike.id}}
+    <!--    <input [(ngModel)]="bike.id" placeholder="id">-->
+  </div>
+  <div>
+    <label>Serial number: </label> {{bike.serialNumber}}
+<!--    <input [(ngModel)]="bike.serialNumber" placeholder="serialNumber">-->
+  </div>
+  <div>
+    <label>Manufacturer: </label> {{bike.manufacturer}}
+<!--    <input [(ngModel)]="bike.manufacturer" placeholder="manufacturer">-->
+  </div>
+  <div>
+    <label>Color: </label> {{bike.color}}
+<!--    <input [(ngModel)]="bike.color" placeholder="color">-->
+  </div>
+  <div>
+    <label>Price: </label> {{bike.price}}
+<!--    <input [(ngModel)]="bike.price" placeholder="price">-->
+  </div>
+  <button (click)="goBack()">Back</button>
+<!--  <button (click)="save()">Save</button>-->
+</div>

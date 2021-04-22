@@ -20,12 +20,12 @@ export class BikeService {
       .get<Array<Bike>>(this.bikesUrl);
   }
 
-  // getBike(id: number): Observable<Bike> {
-  //   return this.getBikes()
-  //     .pipe(
-  //       map(bikes => bikes.find(bike => bike.id === id))
-  //     );
-  // }
+  getBike(id: number): Observable<Bike> {
+    // @ts-ignore
+    return this.getBikes().pipe(
+      map(bikes => bikes.find(bike => bike.id === id)));
+  }
+
   //
   // update(bike): Observable<Bike> {
   //   const url = `${this.studentsUrl}/${bike.id}`;

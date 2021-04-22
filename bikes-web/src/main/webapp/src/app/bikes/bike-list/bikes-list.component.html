@@ -1,6 +1,16 @@
 <h2>Bikes</h2>
 <ol class="bikes">
-  <li *ngFor="let bike of bikes">
-    {{bike.serialNumber}} --- {{bike.manufacturer}} --- {{bike.color}} --- {{bike.price}}
+  <li *ngFor="let bike of bikes"
+      [class.selected]="bike === selectedBike"
+      (click)="onSelect(bike)">
+    {{bike.id}}
   </li>
 </ol>
+
+<div *ngIf="selectedBike">
+  <h2>
+    ID {{selectedBike.id}} was selected
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+
+</div>

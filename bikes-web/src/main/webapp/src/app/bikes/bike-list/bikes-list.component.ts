@@ -38,7 +38,7 @@ export class BikesListComponent implements OnInit {
     this.selectedBike = bike;
   }
 
-  // gotoDetail(): void {
-  //   this.router.navigate(['/student/detail', this.selectedStudent.id]);
-  // }
+  gotoDetail() {
+    this.router.navigate(['bike/detail', this.selectedBike.id]);
+  }
 }
