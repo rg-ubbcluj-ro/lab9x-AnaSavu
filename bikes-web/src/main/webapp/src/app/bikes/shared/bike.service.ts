@@ -26,11 +26,4 @@ export class BikeService {
       map(bikes => bikes.find(bike => bike.id === id)));
   }
 
-  //
-  // update(bike): Observable<Bike> {
-  //   const url = `${this.studentsUrl}/${bike.id}`;
-  //   return this.httpClient
-  //     .put<Bike>(url, bike);
-  // }
-
 }
