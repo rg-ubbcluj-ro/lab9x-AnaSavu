@@ -14,6 +14,9 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { RentalsComponent } from './rentals/rentals.component';
 import { RentalListComponent } from './rentals/rental-list/rental-list.component';
+import {ClientService} from "./clients/shared/client.service";
+import {EmployeeService} from "./employees/shared/employee.service";
+import {RentalService} from "./rentals/shared/rental.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +36,7 @@ import { RentalListComponent } from './rentals/rental-list/rental-list.component
     FormsModule,
     HttpClientModule
   ],
-  providers: [BikeService],
+  providers: [BikeService, ClientService, EmployeeService, RentalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

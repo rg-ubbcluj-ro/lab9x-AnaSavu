@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Rental} from "../shared/rental.module";
+import {RentalService} from "../shared/rental.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-rental-list',
@@ -6,10 +9,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rental-list.component.css']
 })
 export class RentalListComponent implements OnInit {
+  errorMessage = "";
+  rentals : Array<Rental> = [];
+  selectedRental : Rental = {
+    id: 0,
+    daysRented: 0,
+    bikeID: 0,
+    clientID: 0,
+    employeeID: 0,
+  };
 
-  constructor() { }
+  constructor(private rentalService: RentalService, private router: Router) { }
 
   ngOnInit(): void {
+    this.rentalService.getRentals().subscribe(rentals => this.rentals = rentals);
+  }
+
+  getRentals() {
+    this.rentalService.getRentals().subscribe(
+      rentals => this.rentals = rentals,
+      error => this.errorMessage = <any>error
+    );
   }
 
 }

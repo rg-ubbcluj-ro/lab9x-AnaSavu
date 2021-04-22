@@ -1,1 +1,7 @@
-<p>rental-list works!</p>
+<h2>Rentals</h2>
+<ol class="rentals">
+  <li *ngFor="let rental of rentals">
+    {{rental.daysRented}} --- {{rental.bikeID}} --- {{rental.clientID}} --- {{rental.employeeID}}
+  </li>
+</ol>
+
