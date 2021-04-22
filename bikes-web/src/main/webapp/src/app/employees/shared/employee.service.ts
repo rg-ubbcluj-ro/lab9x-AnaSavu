@@ -16,4 +16,10 @@ export class EmployeeService {
     return this.httpClient.get<Array<Employee>>(this.employeesUrl);
   }
 
+  getEmployee(id: number): Observable<Employee> {
+    // @ts-ignore
+    return this.getEmployees().pipe(
+      map(employees => employees.find(employee => employee.id === id)));
+  }
+
 }

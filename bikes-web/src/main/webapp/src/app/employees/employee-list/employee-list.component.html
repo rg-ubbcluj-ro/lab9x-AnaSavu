@@ -1,6 +1,16 @@
 <h2>Employees</h2>
 <ol class="employees">
-  <li *ngFor="let employee of employees">
-    {{employee.name}} --- {{employee.position}} --- {{employee.workedHours}}
+  <li *ngFor="let employee of employees"
+      [class.selected]="employee === selectedEmployee"
+      (click)="onSelect(employee)">
+    {{employee.id}}
   </li>
 </ol>
+
+<div *ngIf="selectedEmployee">
+  <h2>
+    ID {{selectedEmployee.id}} was selected
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+
+</div>

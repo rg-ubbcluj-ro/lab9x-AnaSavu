@@ -32,4 +32,11 @@ export class RentalListComponent implements OnInit {
     );
   }
 
+  onSelect(rental: Rental) {
+    this.selectedRental = rental;
+  }
+
+  gotoDetail() {
+    this.router.navigate(['rental/detail', this.selectedRental.id]);
+  }
 }

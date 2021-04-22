@@ -37,4 +37,7 @@ export class ClientListComponent implements OnInit {
     this.selectedClient = client;
   }
 
+  gotoDetail() {
+    this.router.navigate(['client/detail', this.selectedClient.id]);
+  }
 }

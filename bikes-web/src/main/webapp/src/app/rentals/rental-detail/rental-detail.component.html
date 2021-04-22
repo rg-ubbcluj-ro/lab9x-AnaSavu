@@ -1,0 +1,25 @@
+<div *ngIf="rental">
+  <h2>Rental {{rental.id}} details</h2>
+  <div>
+    <label>ID: </label> {{rental.id}}
+    <!--    <input [(ngModel)]="rental.id" placeholder="id">-->
+  </div>
+  <div>
+    <label>Days Rented: </label> {{rental.daysRented}}
+    <!--    <input [(ngModel)]="rental.daysRented" placeholder="daysRented">-->
+  </div>
+  <div>
+    <label>Bike ID: </label> {{rental.bikeID}}
+    <!--    <input [(ngModel)]="rental.bikeID" placeholder="bikeID">-->
+  </div>
+  <div>
+    <label>Client ID: </label> {{rental.clientID}}
+    <!--    <input [(ngModel)]="rental.clientID" placeholder="clientID">-->
+  </div>
+  <div>
+    <label>Employee ID: </label> {{rental.employeeID}}
+    <!--    <input [(ngModel)]="rental.employeeID" placeholder="employeeID">-->
+  </div>
+  <button (click)="goBack()">Back</button>
+  <!--  <button (click)="save()">Save</button>-->
+</div>
