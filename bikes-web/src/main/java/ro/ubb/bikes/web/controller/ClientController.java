@@ -15,6 +15,7 @@ import ro.ubb.bikes.web.dto.BikesListDto;
 import ro.ubb.bikes.web.dto.ClientDto;
 import ro.ubb.bikes.web.dto.ClientsListDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -61,9 +62,17 @@ public class ClientController {
         return resultClient;
     }
 
+//    @RequestMapping(value = "/clients")
+//    ClientsListDto getAllClients() {
+//        return new ClientsListDto(
+//                clientConverter.convertModelsToDtos(
+//                        clientService.getAll()
+//                ));
+//    }
+
     @RequestMapping(value = "/clients")
-    ClientsListDto getAllClients() {
-        return new ClientsListDto(
+    List<ClientDto> getAllClients() {
+        return new ArrayList<>(
                 clientConverter.convertModelsToDtos(
                         clientService.getAll()
                 ));

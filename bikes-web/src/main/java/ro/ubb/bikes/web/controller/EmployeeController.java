@@ -12,6 +12,7 @@ import ro.ubb.bikes.web.converter.EmployeeConverter;
 import ro.ubb.bikes.web.dto.EmployeeDto;
 import ro.ubb.bikes.web.dto.EmployeesListDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -56,9 +57,17 @@ public class EmployeeController {
         return resultEmployee;
     }
 
+//    @RequestMapping(value = "/employees")
+//    EmployeesListDto getAllEmployees() {
+//        return new EmployeesListDto(
+//                employeeConverter.convertModelsToDtos(
+//                        employeeService.getAll()
+//                ));
+//    }
+
     @RequestMapping(value = "/employees")
-    EmployeesListDto getAllEmployees() {
-        return new EmployeesListDto(
+    List<EmployeeDto> getAllEmployees() {
+        return new ArrayList<>(
                 employeeConverter.convertModelsToDtos(
                         employeeService.getAll()
                 ));
