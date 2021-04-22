@@ -13,6 +13,7 @@ import ro.ubb.bikes.web.converter.BikeConverter;
 import ro.ubb.bikes.web.dto.BikeDto;
 import ro.ubb.bikes.web.dto.BikesListDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -57,9 +58,17 @@ public class BikeController {
         return resultBike;
     }
 
+//    @RequestMapping(value = "/bikes")
+//    BikesListDto getAllBikes() {
+//        return new BikesListDto(
+//                bikeConverter.convertModelsToDtos(
+//                        bikeService.getAll()
+//                ));
+//    }
+
     @RequestMapping(value = "/bikes")
-    BikesListDto getAllBikes() {
-        return new BikesListDto(
+    List<BikeDto> getAllBikes() {
+        return new ArrayList<>(
                 bikeConverter.convertModelsToDtos(
                         bikeService.getAll()
                 ));
