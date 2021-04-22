@@ -1,5 +1,4 @@
 package ro.ubb.bikes.web.dto;
-
 import lombok.*;
 
 @NoArgsConstructor
@@ -8,9 +7,8 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Builder
-public class BikeDto extends BaseDto {
-    private String serialNumber;
-    private String manufacturer;
-    private String color;
-    private int price;
+public class ClientDto extends BaseDto{
+    private String name;
+    private int age;
+    private String phoneNumber;
 }

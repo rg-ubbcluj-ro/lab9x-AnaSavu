@@ -11,9 +11,8 @@ import javax.persistence.Entity;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Builder
-public class Bike extends BaseEntity<Long> {
-    private String serialNumber;
-    private String manufacturer;
-    private String color;
-    private int price;
+public class Client extends BaseEntity<Long> {
+    private String name;
+    private int age;
+    private String phoneNumber;
 }

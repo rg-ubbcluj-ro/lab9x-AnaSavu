@@ -1,16 +1,14 @@
 package ro.ubb.bikes.web.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import java.util.Set;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-public class BikesDto {
-    private Set<BikeDto> bikes;
+@Data
+public class RentalsListDto {
+    private List<RentalDto> rentals;
 }
