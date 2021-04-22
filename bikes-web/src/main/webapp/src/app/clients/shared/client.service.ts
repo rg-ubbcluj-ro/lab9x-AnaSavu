@@ -18,13 +18,11 @@ export class ClientService {
       .get<Array<Client>>(this.clientsUrl);
   }
 
-  // getBike(id: number): Observable<Bike> {
-  //   return this.getBikes()
-  //     .pipe(
-  //       map(bikes => bikes.find(bike => bike.id === id))
-  //     );
-  // }
-  //
+  getClient(id: number): Observable<Client> {
+    // @ts-ignore
+    return this.getClients().pipe(map(clients => clients.find(client => client.id === id)));
+  }
+
   // update(bike): Observable<Bike> {
   //   const url = `${this.studentsUrl}/${bike.id}`;
   //   return this.httpClient

@@ -5,13 +5,19 @@ import {EmployeesComponent} from "./employees/employees.component";
 import {ClientsComponent} from "./clients/clients.component";
 import {RentalsComponent} from "./rentals/rentals.component";
 import {BikeDetailComponent} from "./bikes/bike-detail/bike-detail.component";
+import {ClientDetailComponent} from "./clients/client-detail/client-detail.component";
+import {RentalDetailComponent} from "./rentals/rental-detail/rental-detail.component";
+import {EmployeeDetailComponent} from "./employees/employee-detail/employee-detail.component";
 
 const routes: Routes = [
   {path: 'bikes', component: BikesComponent},
   {path: 'clients', component: ClientsComponent},
   {path: 'employees', component: EmployeesComponent},
   {path: 'rentals', component: RentalsComponent},
-  {path: 'bike/detail/:id', component: BikeDetailComponent}
+  {path: 'bike/detail/:id', component: BikeDetailComponent},
+  {path: 'client/detail/:id', component: ClientDetailComponent},
+  {path: 'employee/detail/:id', component: EmployeeDetailComponent},
+  {path: 'rental/detail/:id', component: RentalDetailComponent}
   // {path 'bike/detail/:id', component: BikeDe}
 ];
 

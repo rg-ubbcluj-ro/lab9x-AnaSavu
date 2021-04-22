@@ -1,0 +1,21 @@
+<div *ngIf="employee">
+  <h2>Employee {{employee.name}} details</h2>
+  <div>
+    <label>ID: </label> {{employee.id}}
+    <!--    <input [(ngModel)]="employee.id" placeholder="id">-->
+  </div>
+  <div>
+    <label>Name: </label> {{employee.name}}
+    <!--    <input [(ngModel)]="employee.name" placeholder="name">-->
+  </div>
+  <div>
+    <label>Position: </label> {{employee.position}}
+    <!--    <input [(ngModel)]="employee.position" placeholder="position">-->
+  </div>
+  <div>
+    <label>Worked Hours: </label> {{employee.workedHours}}
+    <!--    <input [(ngModel)]="employee.workedHours" placeholder="workedHours">-->
+  </div>
+  <button (click)="goBack()">Back</button>
+  <!--  <button (click)="save()">Save</button>-->
+</div>
