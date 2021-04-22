@@ -1,1 +1,6 @@
-<p>employee-list works!</p>
+<h2>Employees</h2>
+<ol class="employees">
+  <li *ngFor="let employee of employees">
+    {{employee.name}} --- {{employee.position}} --- {{employee.workedHours}}
+  </li>
+</ol>
