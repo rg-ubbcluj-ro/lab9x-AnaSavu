@@ -17,6 +17,7 @@ import { RentalListComponent } from './rentals/rental-list/rental-list.component
 import {ClientService} from "./clients/shared/client.service";
 import {EmployeeService} from "./employees/shared/employee.service";
 import {RentalService} from "./rentals/shared/rental.service";
+import { BikeDetailComponent } from './bikes/bike-detail/bike-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {RentalService} from "./rentals/shared/rental.service";
     EmployeesComponent,
     EmployeeListComponent,
     RentalsComponent,
-    RentalListComponent
+    RentalListComponent,
+    BikeDetailComponent
   ],
   imports: [
     BrowserModule,
