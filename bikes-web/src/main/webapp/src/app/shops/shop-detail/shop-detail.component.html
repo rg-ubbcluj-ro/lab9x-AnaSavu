@@ -1,0 +1,17 @@
+<div *ngIf="shop">
+  <h2>Bike {{shop.name}} details</h2>
+  <div>
+    <label>ID: </label> {{shop.id}}
+    <!--    <input [(ngModel)]="shop.id" placeholder="id">-->
+  </div>
+  <div>
+    <label>Name: </label> {{shop.name}}
+    <!--    <input [(ngModel)]="shop.name" placeholder="name">-->
+  </div>
+  <div>
+    <label>City: </label> {{shop.city}}
+    <!--    <input [(ngModel)]="shop.city" placeholder="city">-->
+  </div>
+  <button (click)="goBack()">Back</button>
+  <!--  <button (click)="save()">Save</button>-->
+</div>

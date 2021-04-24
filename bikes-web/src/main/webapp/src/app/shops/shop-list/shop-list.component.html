@@ -1,0 +1,16 @@
+<h2>Shops</h2>
+<ol class="shops">
+  <li *ngFor="let shop of shops"
+      [class.selected]="shop === selectedShop"
+      (click)="onSelect(shop)">
+    {{shop.id}}
+  </li>
+</ol>
+
+<div *ngIf="selectedShop">
+  <h2>
+    ID {{selectedShop.id}} was selected
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+
+</div>
