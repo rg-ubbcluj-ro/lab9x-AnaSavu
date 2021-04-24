@@ -21,6 +21,10 @@ import { BikeDetailComponent } from './bikes/bike-detail/bike-detail.component';
 import { ClientDetailComponent } from './clients/client-detail/client-detail.component';
 import { RentalDetailComponent } from './rentals/rental-detail/rental-detail.component';
 import { EmployeeDetailComponent } from './employees/employee-detail/employee-detail.component';
+import { ShopsComponent } from './shops/shops.component';
+import {ShopService} from "./shops/shared/shop.service";
+import { ShopListComponent } from './shops/shop-list/shop-list.component';
+import { ShopDetailComponent } from './shops/shop-detail/shop-detail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,10 @@ import { EmployeeDetailComponent } from './employees/employee-detail/employee-de
     BikeDetailComponent,
     ClientDetailComponent,
     RentalDetailComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    ShopsComponent,
+    ShopListComponent,
+    ShopDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,7 @@ import { EmployeeDetailComponent } from './employees/employee-detail/employee-de
     FormsModule,
     HttpClientModule
   ],
-  providers: [BikeService, ClientService, EmployeeService, RentalService],
+  providers: [BikeService, ClientService, EmployeeService, RentalService, ShopService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
