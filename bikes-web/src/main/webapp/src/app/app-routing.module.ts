@@ -10,6 +10,7 @@ import {RentalDetailComponent} from "./rentals/rental-detail/rental-detail.compo
 import {EmployeeDetailComponent} from "./employees/employee-detail/employee-detail.component";
 import {ShopsComponent} from "./shops/shops.component";
 import {ShopDetailComponent} from "./shops/shop-detail/shop-detail.component";
+import {BikeNewComponent} from "./bikes/bike-new/bike-new.component";
 
 const routes: Routes = [
   {path: 'bikes', component: BikesComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'client/detail/:id', component: ClientDetailComponent},
   {path: 'employee/detail/:id', component: EmployeeDetailComponent},
   {path: 'rental/detail/:id', component: RentalDetailComponent},
-  {path: 'shop/detail/:id', component: ShopDetailComponent}
+  {path: 'shop/detail/:id', component: ShopDetailComponent},
+  {path: 'bike-new', component: BikeNewComponent}
   // {path 'bike/detail/:id', component: BikeDe}
 ];
 

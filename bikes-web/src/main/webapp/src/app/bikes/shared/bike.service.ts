@@ -26,4 +26,8 @@ export class BikeService {
       map(bikes => bikes.find(bike => bike.id === id)));
   }
 
+  saveBike(bike: Bike): Observable<Bike> {
+    return this.httpClient.post<Bike>(this.bikesUrl, bike);
+  }
+
 }
