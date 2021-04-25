@@ -11,6 +11,7 @@ import {EmployeeDetailComponent} from "./employees/employee-detail/employee-deta
 import {ShopsComponent} from "./shops/shops.component";
 import {ShopDetailComponent} from "./shops/shop-detail/shop-detail.component";
 import {BikeNewComponent} from "./bikes/bike-new/bike-new.component";
+import {BikeUpdateComponent} from "./bikes/bike-update/bike-update.component";
 
 const routes: Routes = [
   {path: 'bikes', component: BikesComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'employee/detail/:id', component: EmployeeDetailComponent},
   {path: 'rental/detail/:id', component: RentalDetailComponent},
   {path: 'shop/detail/:id', component: ShopDetailComponent},
-  {path: 'bike-new', component: BikeNewComponent}
+  {path: 'bike-new', component: BikeNewComponent},
+  {path: 'bike/update/:id', component: BikeUpdateComponent}
 ];
 
 @NgModule({

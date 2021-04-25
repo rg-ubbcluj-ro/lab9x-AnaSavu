@@ -35,4 +35,10 @@ export class BikeService {
     const endPoints = '/' + id;
     return this.httpClient.delete<Bike>(this.bikesUrl + endPoints);
   }
+
+  updateBike(bike: Bike) {
+    const endPoints = '/' + bike.id;
+    console.log(endPoints);
+    return this.httpClient.put<Bike>(this.bikesUrl + endPoints, bike);
+  }
 }
