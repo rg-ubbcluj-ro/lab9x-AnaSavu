@@ -24,7 +24,6 @@ const routes: Routes = [
   {path: 'rental/detail/:id', component: RentalDetailComponent},
   {path: 'shop/detail/:id', component: ShopDetailComponent},
   {path: 'bike-new', component: BikeNewComponent}
-  // {path 'bike/detail/:id', component: BikeDe}
 ];
 
 @NgModule({

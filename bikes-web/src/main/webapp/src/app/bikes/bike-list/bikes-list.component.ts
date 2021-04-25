@@ -41,4 +41,8 @@ export class BikesListComponent implements OnInit {
   gotoDetail() {
     this.router.navigate(['bike/detail', this.selectedBike.id]);
   }
+
+  deleteBike(id: number) {
+    this.bikeService.deleteBike(id).subscribe(() => console.log('deleted bike'));
+  }
 }
