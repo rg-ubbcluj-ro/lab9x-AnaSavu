@@ -37,6 +37,10 @@ export class BikesListComponent implements OnInit {
   onSelect(bike: Bike): void {
     this.selectedBike = bike;
   }
+  onDoubleSelect(bike: Bike): void {
+    this.selectedBike = bike;
+    this.router.navigate(['bike/detail', this.selectedBike.id]);
+  }
 
   gotoDetail() {
     this.router.navigate(['bike/detail', this.selectedBike.id]);

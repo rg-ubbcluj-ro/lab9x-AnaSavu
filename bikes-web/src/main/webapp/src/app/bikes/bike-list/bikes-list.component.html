@@ -2,6 +2,7 @@
 <ol class="bikes">
   <li *ngFor="let bike of bikes"
       [class.selected]="bike === selectedBike"
+      (dblclick)="onDoubleSelect(bike)"
       (click)="onSelect(bike)">
     {{bike.id}}
   </li>
