@@ -25,6 +25,7 @@ import { ShopsComponent } from './shops/shops.component';
 import {ShopService} from "./shops/shared/shop.service";
 import { ShopListComponent } from './shops/shop-list/shop-list.component';
 import { ShopDetailComponent } from './shops/shop-detail/shop-detail.component';
+import { BikeNewComponent } from './bikes/bike-new/bike-new.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ShopDetailComponent } from './shops/shop-detail/shop-detail.component';
     EmployeeDetailComponent,
     ShopsComponent,
     ShopListComponent,
-    ShopDetailComponent
+    ShopDetailComponent,
+    BikeNewComponent
   ],
   imports: [
     BrowserModule,
