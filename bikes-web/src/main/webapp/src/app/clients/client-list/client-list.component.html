@@ -2,7 +2,8 @@
 <ol class="clients">
   <li *ngFor="let client of clients"
       [class.selected]="client === selectedClient"
-      (click)="onSelect(client)">
+      (click)="onSelect(client)"
+      (dblclick)="onDoubleSelect(client)">
     {{client.id}}
   </li>
 </ol>
@@ -12,5 +13,6 @@
     ID {{selectedClient.id}} was selected
   </h2>
   <button (click)="gotoDetail()">View Details</button>
-
+  <button (click)="deleteClient(selectedClient.id)">Delete Client</button>
+  <button (click)="updateClient()">Update Client</button>
 </div>

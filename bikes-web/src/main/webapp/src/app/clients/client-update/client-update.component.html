@@ -1,0 +1,15 @@
+<div *ngIf="client">
+  <h2>Client {{client.id}} for update</h2>
+  <div>
+    <label>Name: <input #name /></label><br />
+  </div>
+  <div>
+    <label>Age: <input #age /></label><br />
+  </div>
+  <div>
+    <label>Phone Number: <input #phoneNumber /></label><br />
+  </div>
+  <button (click)="updateClient(name.value, age.value, phoneNumber.value, client.id)">Update</button>
+  <button (click)="goBack()">Back</button>
+</div>
+

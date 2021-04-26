@@ -35,7 +35,7 @@ export class BikeUpdateComponent implements OnInit {
       color,
       price: +price
     };
-    this.bikeService.updateBike(bike).subscribe(b1 => console.log('saved bike: ', b1));
+    this.bikeService.updateBike(bike).subscribe(b1 => console.log('updated bike: ', b1));
   }
   goBack() {
     this.location.back();

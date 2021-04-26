@@ -38,7 +38,6 @@ export class BikeService {
 
   updateBike(bike: Bike) {
     const endPoints = '/' + bike.id;
-    console.log(endPoints);
     return this.httpClient.put<Bike>(this.bikesUrl + endPoints, bike);
   }
 }

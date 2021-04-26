@@ -37,7 +37,20 @@ export class ClientListComponent implements OnInit {
     this.selectedClient = client;
   }
 
+  onDoubleSelect(client: Client): void {
+    this.selectedClient = client;
+    this.router.navigate(['client/detail', this.selectedClient.id]);
+  }
+
   gotoDetail() {
     this.router.navigate(['client/detail', this.selectedClient.id]);
+  }
+
+  deleteClient(id: number) {
+    this.clientService.deleteClient(id).subscribe(() => console.log('deleted client'));
+  }
+
+  updateClient() {
+    this.router.navigate(['client/update', this.selectedClient.id]);
   }
 }
