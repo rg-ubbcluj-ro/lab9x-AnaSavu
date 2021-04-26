@@ -23,11 +23,18 @@ export class ClientService {
     return this.getClients().pipe(map(clients => clients.find(client => client.id === id)));
   }
 
-  // update(bike): Observable<Bike> {
-  //   const url = `${this.studentsUrl}/${bike.id}`;
-  //   return this.httpClient
-  //     .put<Bike>(url, bike);
-  // }
+  saveClient(client: Client): Observable<Client> {
+    return this.httpClient.post<Client>(this.clientsUrl, client);
+  }
 
+  deleteClient(id: number): Observable<Client> {
+    const endPoints = '/' + id;
+    return this.httpClient.delete<Client>(this.clientsUrl + endPoints);
+  }
+
+  updateClient(client: Client) {
+    const endPoints = '/' + client.id;
+    return this.httpClient.put<Client>(this.clientsUrl + endPoints, client);
+  }
 }
 

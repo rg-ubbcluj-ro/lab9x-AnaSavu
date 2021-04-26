@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikesListComponent } from './bikes/bike-list/bikes-list.component';
 import {BikeService} from "./bikes/shared/bike.service";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ClientsComponent } from './clients/clients.component';
 import { ClientListComponent } from './clients/client-list/client-list.component';
@@ -27,6 +27,8 @@ import { ShopListComponent } from './shops/shop-list/shop-list.component';
 import { ShopDetailComponent } from './shops/shop-detail/shop-detail.component';
 import { BikeNewComponent } from './bikes/bike-new/bike-new.component';
 import { BikeUpdateComponent } from './bikes/bike-update/bike-update.component';
+import { ClientNewComponent } from './clients/client-new/client-new.component';
+import { ClientUpdateComponent } from './clients/client-update/client-update.component';
 
 @NgModule({
   declarations: [
@@ -47,13 +49,16 @@ import { BikeUpdateComponent } from './bikes/bike-update/bike-update.component';
     ShopListComponent,
     ShopDetailComponent,
     BikeNewComponent,
-    BikeUpdateComponent
+    BikeUpdateComponent,
+    ClientNewComponent,
+    ClientUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [BikeService, ClientService, EmployeeService, RentalService, ShopService],
   bootstrap: [AppComponent]
