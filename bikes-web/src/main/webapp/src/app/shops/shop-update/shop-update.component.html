@@ -1,0 +1,12 @@
+<div *ngIf="shop">
+  <h2>Shop {{shop.id}} for update</h2>
+  <div>
+    <label>Name: <input #name /></label><br />
+  </div>
+  <div>
+    <label>City: <input #city /></label><br />
+  </div>
+  <button (click)="updateShop(name.value, city.value, shop.id)">Update</button>
+  <button (click)="goBack()">Back</button>
+</div>
+

@@ -32,7 +32,7 @@ export class ClientService {
     return this.httpClient.delete<Client>(this.clientsUrl + endPoints);
   }
 
-  updateClient(client: Client) {
+  updateClient(client: Client): Observable<Client> {
     const endPoints = '/' + client.id;
     return this.httpClient.put<Client>(this.clientsUrl + endPoints, client);
   }

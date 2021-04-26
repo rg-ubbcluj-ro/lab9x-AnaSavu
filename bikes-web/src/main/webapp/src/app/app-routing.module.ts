@@ -14,6 +14,8 @@ import {BikeNewComponent} from "./bikes/bike-new/bike-new.component";
 import {BikeUpdateComponent} from "./bikes/bike-update/bike-update.component";
 import {ClientNewComponent} from "./clients/client-new/client-new.component";
 import {ClientUpdateComponent} from "./clients/client-update/client-update.component";
+import {ShopNewComponent} from "./shops/shop-new/shop-new.component";
+import {ShopUpdateComponent} from "./shops/shop-update/shop-update.component";
 
 const routes: Routes = [
   {path: 'bikes', component: BikesComponent},
@@ -29,7 +31,9 @@ const routes: Routes = [
   {path: 'bike-new', component: BikeNewComponent},
   {path: 'bike/update/:id', component: BikeUpdateComponent},
   {path: 'client-new', component: ClientNewComponent},
-  {path: 'client/update/:id', component: ClientUpdateComponent}
+  {path: 'client/update/:id', component: ClientUpdateComponent},
+  {path: 'shop-new', component: ShopNewComponent},
+  {path: 'shop/update/:id', component: ShopUpdateComponent}
 ];
 
 @NgModule({

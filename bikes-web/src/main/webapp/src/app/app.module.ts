@@ -29,6 +29,8 @@ import { BikeNewComponent } from './bikes/bike-new/bike-new.component';
 import { BikeUpdateComponent } from './bikes/bike-update/bike-update.component';
 import { ClientNewComponent } from './clients/client-new/client-new.component';
 import { ClientUpdateComponent } from './clients/client-update/client-update.component';
+import { ShopNewComponent } from './shops/shop-new/shop-new.component';
+import { ShopUpdateComponent } from './shops/shop-update/shop-update.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ClientUpdateComponent } from './clients/client-update/client-update.com
     BikeNewComponent,
     BikeUpdateComponent,
     ClientNewComponent,
-    ClientUpdateComponent
+    ClientUpdateComponent,
+    ShopNewComponent,
+    ShopUpdateComponent
   ],
   imports: [
     BrowserModule,

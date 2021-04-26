@@ -2,6 +2,7 @@
 <ol class="shops">
   <li *ngFor="let shop of shops"
       [class.selected]="shop === selectedShop"
+      (dblclick)="onDoubleSelect(shop)"
       (click)="onSelect(shop)">
     {{shop.id}}
   </li>
@@ -12,5 +13,6 @@
     ID {{selectedShop.id}} was selected
   </h2>
   <button (click)="gotoDetail()">View Details</button>
-
+  <button (click)="deleteShop(selectedShop.id)">Delete Shop</button>
+  <button (click)="updateShop()">Update Shop</button>
 </div>

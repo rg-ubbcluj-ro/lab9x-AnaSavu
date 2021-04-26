@@ -32,7 +32,20 @@ export class ShopListComponent implements OnInit {
     this.selectedShop = shop;
   }
 
+  onDoubleSelect(shop: Shop): void {
+    this.selectedShop = shop;
+    this.router.navigate(['shop/detail', this.selectedShop.id]);
+  }
+
   gotoDetail() {
     this.router.navigate(['shop/detail', this.selectedShop.id]);
+  }
+
+  deleteShop(id: number) {
+    this.shopService.deleteShop(id).subscribe(() => console.log('deleted shop'));
+  }
+
+  updateShop() {
+    this.router.navigate(['shop/update', this.selectedShop.id]);
   }
 }
