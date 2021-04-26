@@ -13,7 +13,6 @@ export class BikeService {
   private bikesUrl = 'http://localhost:8080/api/bikes';
 
   constructor(private httpClient: HttpClient) {
-    const headers = { 'Authorization': 'Bearer my-token', 'My-Custom-Header': 'foobar' };
   }
 
   getBikes(): Observable<Bike[]> {
@@ -36,7 +35,7 @@ export class BikeService {
     return this.httpClient.delete<Bike>(this.bikesUrl + endPoints);
   }
 
-  updateBike(bike: Bike) {
+  updateBike(bike: Bike): Observable<Bike> {
     const endPoints = '/' + bike.id;
     return this.httpClient.put<Bike>(this.bikesUrl + endPoints, bike);
   }
