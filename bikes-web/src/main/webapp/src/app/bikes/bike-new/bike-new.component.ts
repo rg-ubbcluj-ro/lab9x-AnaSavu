@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BikeService} from "../shared/bike.service";
 import {Bike} from "../shared/bike.model";
 import {Location} from "@angular/common";
@@ -9,6 +9,13 @@ import {Location} from "@angular/common";
   styleUrls: ['./bike-new.component.css']
 })
 export class BikeNewComponent implements OnInit {
+  bike: Bike = {
+    id: 0,
+    serialNumber: "",
+    manufacturer: "",
+    color: "",
+    price: 0
+  };
 
   constructor(private bikeService: BikeService, private location: Location) { }
 
@@ -27,5 +34,10 @@ export class BikeNewComponent implements OnInit {
 
   goBack() {
     this.location.back();
+  }
+
+  onSubmitTemplateBased() {
+    console.log(this.bike);
+    //this.bikeService.saveBike(bike).subscribe(b1 => console.log('saved bike: ', b1));
   }
 }

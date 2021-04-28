@@ -15,4 +15,6 @@
   <button (click)="gotoDetail()">View Details</button>
   <button (click)="deleteClient(selectedClient.id)">Delete Client</button>
   <button (click)="updateClient()">Update Client</button>
+  <button (click)="sortClients()">Sort Clients</button>
+  <label>Name: <input #name /></label><br /><button (click)="filterClients(name.value)">Filter Clients</button>
 </div>

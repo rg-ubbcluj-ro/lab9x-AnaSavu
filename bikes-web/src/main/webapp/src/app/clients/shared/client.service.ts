@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
@@ -35,6 +35,16 @@ export class ClientService {
   updateClient(client: Client): Observable<Client> {
     const endPoints = '/' + client.id;
     return this.httpClient.put<Client>(this.clientsUrl + endPoints, client);
+  }
+
+  sortClients(): Observable<Client[]> {
+    return this.httpClient.get<Array<Client>>(this.clientsUrl + '/sort');
+  }
+
+  filterClients(name: string): Observable<Client[]> {
+    const param = new HttpParams();
+    param.set('name', name);
+    return this.httpClient.get<Array<Client>>(this.clientsUrl + '/filter', {params: param});
   }
 }
 

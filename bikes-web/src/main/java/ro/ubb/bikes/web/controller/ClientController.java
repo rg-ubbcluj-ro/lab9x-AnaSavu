@@ -79,25 +79,21 @@ public class ClientController {
     }
 
     @RequestMapping(value = "/clients/filter", method = RequestMethod.GET)
-    ClientsListDto filterClientsByName(@RequestParam String name) {
+    List<ClientDto> filterClientsByName(@RequestParam String name) {
         log.trace("filterClientsByName - method entered: name={}", name);
 
         List<Client> clients = clientService.filter(name);
-        List<ClientDto> clientsDtos = clientConverter.convertModelsToDtos(clients);
-        ClientsListDto result = new ClientsListDto(clientsDtos);
-
+        List<ClientDto> result = new ArrayList<>(clientConverter.convertModelsToDtos(clients));
         log.trace("filterClientsByName: result={}", result);
         return result;
     }
 
     @RequestMapping(value = "/clients/sort", method = RequestMethod.GET)
-    ClientsListDto sortClients() {
+    List<ClientDto> sortClients() {
         log.trace("sortClients - method entered");
 
         List<Client> clients = clientService.sort();
-        List<ClientDto> clientsDtos = clientConverter.convertModelsToDtos(clients);
-        ClientsListDto result = new ClientsListDto(clientsDtos);
-
+        List<ClientDto> result = new ArrayList<>(clientConverter.convertModelsToDtos(clients));
         log.trace("clientSort: result={}", result);
         return result;
     }

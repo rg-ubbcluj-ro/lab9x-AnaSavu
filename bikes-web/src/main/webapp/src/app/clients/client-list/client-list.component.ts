@@ -53,4 +53,12 @@ export class ClientListComponent implements OnInit {
   updateClient() {
     this.router.navigate(['client/update', this.selectedClient.id]);
   }
+
+  sortClients() {
+    this.clientService.sortClients().subscribe(clients => this.clients = clients);
+  }
+
+  filterClients(name: string) {
+    this.clientService.filterClients(name).subscribe(clients => this.clients = clients);
+  }
 }
