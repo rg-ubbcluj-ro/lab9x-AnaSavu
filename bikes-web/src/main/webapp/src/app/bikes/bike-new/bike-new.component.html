@@ -1,7 +1,9 @@
 <h2>Add Bike</h2>
-<label>Serial Number: <input #serialNumber /></label><br />
-<label>Manufacturer: <input #manufacturer /></label><br />
-<label>Color: <input #color /></label><br />
-<label>Price: <input #price /></label><br />
-<button (click)="saveBike(serialNumber.value, manufacturer.value, color.value, price.value)">Save</button>
-<button (click)="goBack()">Back</button>
+<form #myForm='ngForm' (ngSubmit)="onSubmitTemplateBased()">
+  <label>Serial Number: <input type="text" [(ngModel)]="bike.serialNumber" required/></label><br />
+  <label>Manufacturer: <input type="text" [(ngModel)]="bike.manufacturer" required /></label><br />
+  <label>Color: <input type="text" [(ngModel)]="bike.color" required/></label><br />
+  <label>Price: <input type="text" [(ngModel)]="bike.price" required/></label><br />
+  <button type="submit">Save</button>
+  <button (click)="goBack()">Back</button>
+</form>

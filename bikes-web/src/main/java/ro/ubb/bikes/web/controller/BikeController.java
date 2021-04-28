@@ -58,14 +58,6 @@ public class BikeController {
         return resultBike;
     }
 
-//    @RequestMapping(value = "/bikes")
-//    BikesListDto getAllBikes() {
-//        return new BikesListDto(
-//                bikeConverter.convertModelsToDtos(
-//                        bikeService.getAll()
-//                ));
-//    }
-
     @RequestMapping(value = "/bikes")
     List<BikeDto> getAllBikes() {
         return new ArrayList<>(
@@ -75,25 +67,25 @@ public class BikeController {
     }
 
     @RequestMapping(value = "/bikes/filter", method = RequestMethod.GET)
-    BikesListDto filterBikesByPrice(@RequestParam Integer price) {
+    List<BikeDto> filterBikesByPrice(@RequestParam Integer price) {
         log.trace("filterBikesByPrice - method entered: price={}", price);
 
         List<Bike> bikes = bikeService.filter(price);
-        List<BikeDto> bikesDtos = bikeConverter.convertModelsToDtos(bikes);
-        BikesListDto result = new BikesListDto(bikesDtos);
-
+//        List<BikeDto> bikesDtos = bikeConverter.convertModelsToDtos(bikes);
+//        BikesListDto result = new BikesListDto(bikesDtos);
+        List<BikeDto> result = new ArrayList<>(bikeConverter.convertModelsToDtos(bikes));
         log.trace("filterBikesByPrice: result={}", result);
         return result;
     }
 
     @RequestMapping(value = "/bikes/sort", method = RequestMethod.GET)
-    BikesListDto sortBikesBySerialNumber() {
+    List<BikeDto> sortBikesBySerialNumber() {
         log.trace("sortBikesBySerialNumber - method entered");
 
         List<Bike> bikes = bikeService.sort();
-        List<BikeDto> bikesDtos = bikeConverter.convertModelsToDtos(bikes);
-        BikesListDto result = new BikesListDto(bikesDtos);
-
+        //List<BikeDto> bikesDtos = bikeConverter.convertModelsToDtos(bikes);
+        //BikesListDto result = new BikesListDto(bikesDtos);
+        List<BikeDto> result = new ArrayList<>(bikeConverter.convertModelsToDtos(bikes));
         log.trace("sortBikesBySerialNumber: result={}", result);
         return result;
     }
