@@ -22,4 +22,15 @@ export class EmployeeService {
       map(employees => employees.find(employee => employee.id === id)));
   }
 
+  saveEmployee(employee: Employee): Observable<Employee> {
+    return this.httpClient.post<Employee>(this.employeesUrl, employee);
+  }
+
+  deleteEmployee(id: number): Observable<Employee> {
+    return this.httpClient.delete<Employee>(this.employeesUrl + '/' + id);
+  }
+
+  updateEmployee(employee: Employee): Observable<Employee>{
+    return this.httpClient.put<Employee>(this.employeesUrl + '/' + employee.id, employee);
+  }
 }

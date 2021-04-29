@@ -1,0 +1,15 @@
+<div *ngIf="employee">
+  <h2>Employee {{employee.id}} for update</h2>
+  <div>
+    <label>Name: <input #name /></label><br />
+  </div>
+  <div>
+    <label>Position: <input #position /></label><br />
+  </div>
+  <div>
+    <label>Worked Hours: <input #workedHours /></label><br />
+  </div>
+  <button (click)="updateEmployee(name.value, position.value, workedHours.value, employee.id)">Update</button>
+  <button (click)="goBack()">Back</button>
+</div>
+

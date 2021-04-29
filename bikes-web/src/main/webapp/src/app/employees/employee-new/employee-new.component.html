@@ -1,0 +1,6 @@
+<h2>Add Employee</h2>
+<label>Name: <input #name /></label><br />
+<label>Position: <input #position /></label><br />
+<label>Worked Hours: <input #workedHours /></label><br />
+<button (click)="saveEmployee(name.value, position.value, workedHours.value)">Save</button>
+<button (click)="goBack()">Back</button>

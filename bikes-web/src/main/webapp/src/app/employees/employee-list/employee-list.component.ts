@@ -36,7 +36,24 @@ export class EmployeeListComponent implements OnInit {
     this.selectedEmployee = employee;
   }
 
+  onDoubleSelect(employee: Employee): void {
+    this.selectedEmployee = employee;
+    this.router.navigate(['employee/detail', this.selectedEmployee.id]);
+  }
+
   gotoDetail() {
     this.router.navigate(['employee/detail', this.selectedEmployee.id]);
+  }
+
+  deleteEmployee(id: number) {
+    this.employeeService.deleteEmployee(id).subscribe(() => console.log('deleted employee'));
+  }
+
+  updateEmployee() {
+    this.router.navigate(['employee/update', this.selectedEmployee.id]);
+  }
+
+  sortEmployees() {
+
   }
 }
