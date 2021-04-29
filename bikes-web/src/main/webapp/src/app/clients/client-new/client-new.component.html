@@ -1,6 +1,12 @@
 <h2>Add Client</h2>
-<label>Name: <input #name /></label><br />
-<label>Age: <input #age /></label><br />
-<label>Phone Number: <input #phoneNumber /></label><br />
-<button (click)="saveClient(name.value, age.value, phoneNumber.value)">Save</button>
-<button (click)="goBack()">Back</button>
+<form class="form" [formGroup]="clientForm" (ngSubmit)="submitClient(clientForm)">
+<!--  <label>Name: <input #name /></label><br />-->
+<!--  <label>Age: <input #age /></label><br />-->
+<!--  <label>Phone Number: <input #phoneNumber /></label><br />-->
+  <label>Name: <input type="text" name="name" formControlName="name" /></label><br />
+  <label>Age: <input name="age" formControlName="age" /></label><br />
+  <label>Phone Number: <input name="phoneNumber" formControlName="phoneNumber"/></label><br />
+<!--  <button (click)="saveClient(name.value, age.value, phoneNumber.value)">Save</button>-->
+  <button type="submit">Save</button>
+  <button (click)="goBack()">Back</button>
+</form>
