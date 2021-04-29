@@ -12,4 +12,5 @@ public class RentalDto extends BaseDto{
     private Long bikeID;
     private Long clientID;
     private Long employeeID;
+    private Long shopID;
 }

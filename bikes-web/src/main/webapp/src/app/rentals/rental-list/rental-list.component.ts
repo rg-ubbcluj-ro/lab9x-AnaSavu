@@ -17,6 +17,7 @@ export class RentalListComponent implements OnInit {
     bikeID: 0,
     clientID: 0,
     employeeID: 0,
+    shopID: 0
   };
 
   constructor(private rentalService: RentalService, private router: Router) { }
@@ -37,6 +38,11 @@ export class RentalListComponent implements OnInit {
   }
 
   gotoDetail() {
+    this.router.navigate(['rental/detail', this.selectedRental.id]);
+  }
+
+  onDoubleSelect(rental: Rental) {
+    this.selectedRental = rental;
     this.router.navigate(['rental/detail', this.selectedRental.id]);
   }
 }

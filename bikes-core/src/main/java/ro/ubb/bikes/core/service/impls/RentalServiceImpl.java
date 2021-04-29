@@ -5,16 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ro.ubb.bikes.core.model.Bike;
-import ro.ubb.bikes.core.model.Client;
-import ro.ubb.bikes.core.model.Employee;
-import ro.ubb.bikes.core.model.Rental;
+import ro.ubb.bikes.core.model.*;
 import ro.ubb.bikes.core.model.exceptions.ValidatorException;
 import ro.ubb.bikes.core.model.validators.RentalValidator;
-import ro.ubb.bikes.core.repository.BikeJpaRepository;
-import ro.ubb.bikes.core.repository.ClientJpaRepository;
-import ro.ubb.bikes.core.repository.EmployeeJpaRepository;
-import ro.ubb.bikes.core.repository.RentalJpaRepository;
+import ro.ubb.bikes.core.repository.*;
 import ro.ubb.bikes.core.service.interfaces.RentalService;
 
 import java.util.List;
@@ -33,6 +27,9 @@ public class RentalServiceImpl implements RentalService {
     private EmployeeJpaRepository employeeJpaRepository;
 
     @Autowired
+    private ShopJpaRepository shopJpaRepository;
+
+    @Autowired
     private RentalJpaRepository rentalJpaRepository;
 
     @Autowired
@@ -45,6 +42,7 @@ public class RentalServiceImpl implements RentalService {
         Bike b1 = bikeJpaRepository.findById(entity.getBikeID()).orElseThrow(() -> new ValidatorException("EXIST - Bike ID not in database!"));
         Client c1 = clientJpaRepository.findById(entity.getClientID()).orElseThrow(() -> new ValidatorException("EXIST - Client ID not in database!"));
         Employee e1 = employeeJpaRepository.findById(entity.getEmployeeID()).orElseThrow(() -> new ValidatorException("EXIST - Employee ID not in database!"));
+        Shop s1 = shopJpaRepository.findById(entity.getShopID()).orElseThrow(() -> new ValidatorException("EXIST - Shop ID not in database!"));
         rentalValidator.validate(entity);
         Rental rental = rentalJpaRepository.save(entity);
 
@@ -83,11 +81,12 @@ public class RentalServiceImpl implements RentalService {
         Bike b1 = bikeJpaRepository.findById(entity.getBikeID()).orElseThrow(() -> new ValidatorException("EXIST - Bike ID not in database!"));
         Client c1 = clientJpaRepository.findById(entity.getClientID()).orElseThrow(() -> new ValidatorException("EXIST - Client ID not in database!"));
         Employee e1 = employeeJpaRepository.findById(entity.getEmployeeID()).orElseThrow(() -> new ValidatorException("EXIST - Employee ID not in database!"));
-
+        Shop s1 = shopJpaRepository.findById(entity.getShopID()).orElseThrow(() -> new ValidatorException("EXIST - Shop ID not in database!"));
         rental.setDaysRented(entity.getDaysRented());
         rental.setBikeID(entity.getBikeID());
         rental.setClientID(entity.getClientID());
         rental.setEmployeeID(entity.getEmployeeID());
+        rental.setShopID(entity.getShopID());
         log.debug("update - updated: rental={}", rental);
 
         log.trace("update - mehtod finished");

@@ -16,7 +16,8 @@ export class RentalDetailComponent implements OnInit {
     daysRented: 0,
     bikeID: 0,
     clientID: 0,
-    employeeID: 0
+    employeeID: 0,
+    shopID: 0
   };
 
   constructor(private rentalService: RentalService, private route: ActivatedRoute, private location: Location) { }
