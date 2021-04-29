@@ -74,26 +74,26 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/employees/filter", method = RequestMethod.GET)
-    EmployeesListDto filterEmployeesByWorkedHours(@RequestParam Integer workedHours) {
+    List<EmployeeDto> filterEmployeesByWorkedHours(@RequestParam Integer workedHours) {
         log.trace("filterEmployeesByWorkedHours - method entered: workedHours={}", workedHours);
 
         List<Employee> employees = employeeService.filter(workedHours);
-        List<EmployeeDto> employeesDtos = employeeConverter.convertModelsToDtos(employees);
-        EmployeesListDto resultEmployees = new EmployeesListDto(employeesDtos);
-
-        log.trace("filterEmployeeByWorkedHours: result={}", resultEmployees);
-        return resultEmployees;
+//        List<EmployeeDto> employeesDtos = employeeConverter.convertModelsToDtos(employees);
+//        EmployeesListDto resultEmployees = new EmployeesListDto(employeesDtos);
+        List<EmployeeDto> result = new ArrayList<>(employeeConverter.convertModelsToDtos(employees));
+        log.trace("filterEmployeeByWorkedHours: result={}", result);
+        return result;
     }
 
     @RequestMapping(value = "/employees/sort", method = RequestMethod.GET)
-    EmployeesListDto sortEmployeesByPosition() {
+    List<EmployeeDto> sortEmployeesByPosition() {
         log.trace("sortEmployeesByPosition - method entered");
 
         List<Employee> employees = employeeService.sort();
-        List<EmployeeDto> employeesDtos = employeeConverter.convertModelsToDtos(employees);
-        EmployeesListDto resultEmployees = new EmployeesListDto(employeesDtos);
-
-        log.trace("sortEmployeesByPosition: result={}", resultEmployees);
-        return resultEmployees;
+//        List<EmployeeDto> employeesDtos = employeeConverter.convertModelsToDtos(employees);
+//        EmployeesListDto resultEmployees = new EmployeesListDto(employeesDtos);
+        List<EmployeeDto> result = new ArrayList<>(employeeConverter.convertModelsToDtos(employees));
+        log.trace("sortEmployeesByPosition: result={}", result);
+        return result;
     }
 }
