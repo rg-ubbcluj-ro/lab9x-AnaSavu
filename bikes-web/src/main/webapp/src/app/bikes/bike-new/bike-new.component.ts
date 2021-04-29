@@ -9,7 +9,6 @@ import {Location} from "@angular/common";
   styleUrls: ['./bike-new.component.css']
 })
 export class BikeNewComponent implements OnInit {
-  str = 'Not submitted';
   bike: Bike = {
     id: 0,
     serialNumber: "",
@@ -38,10 +37,8 @@ export class BikeNewComponent implements OnInit {
   }
 
   onSubmitTemplateBased() {
-    this.str = JSON.stringify(this.bike);
     this.bikeService.saveBike(this.bike).subscribe(b1 => {
       this.bike = b1;
-      this.str = 'inserted into database!' + JSON.stringify(this.bike);
     });
     //this.bikeService.saveBike(bike).subscribe(b1 => console.log('saved bike: ', b1));
   }

@@ -1,18 +1,18 @@
 <div *ngIf="bike">
   <h2>Bike {{bike.id}} for update</h2>
-  <div>
-    <label>Serial number: <input #serialNumber /></label><br />
-  </div>
-  <div>
-    <label>Manufacturer: <input #manufacturer /></label><br />
-  </div>
-  <div>
-    <label>Color: <input #color /></label><br />
-  </div>
-  <div>
-    <label>Price: <input #price /></label><br />
-  </div>
-  <button (click)="updateBike(serialNumber.value, manufacturer.value, color.value, price.value, bike.id)">Update</button>
-  <button (click)="goBack()">Back</button>
+    <div>
+      <label>Serial number: <input #serialNumber /></label><br />
+    </div>
+    <div>
+      <label>Manufacturer: <input #manufacturer /></label><br />
+    </div>
+    <div>
+      <label>Color: <input #color /></label><br />
+    </div>
+    <div>
+      <label>Price: <input #price /></label><br />
+    </div>
+    <button (click)="updateBike(serialNumber.value, manufacturer.value, color.value, price.value, bike.id)">Update</button>
+    <button (click)="goBack()">Back</button>
 </div>
 

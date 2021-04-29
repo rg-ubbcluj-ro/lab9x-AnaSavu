@@ -4,6 +4,7 @@ import {BikeService} from "../shared/bike.service";
 import {Location} from "@angular/common";
 import {ActivatedRoute, Params} from "@angular/router";
 import {switchMap} from "rxjs/operators";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-bike-update',
@@ -39,5 +40,9 @@ export class BikeUpdateComponent implements OnInit {
   }
   goBack() {
     this.location.back();
+  }
+
+  onSubmit() {
+
   }
 }
