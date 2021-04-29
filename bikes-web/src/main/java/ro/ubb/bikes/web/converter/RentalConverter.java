@@ -14,13 +14,13 @@ public class RentalConverter extends BaseConverter<Rental, RentalDto> {
         model.setBikeID(dto.getBikeID());
         model.setClientID(dto.getClientID());
         model.setEmployeeID(dto.getEmployeeID());
-
+        model.setShopID(dto.getShopID());
         return model;
     }
 
     @Override
     public RentalDto convertModelToDto(Rental rental) {
-        RentalDto rentalDto = new RentalDto(rental.getDaysRented(), rental.getBikeID(), rental.getClientID(), rental.getEmployeeID());
+        RentalDto rentalDto = new RentalDto(rental.getDaysRented(), rental.getBikeID(), rental.getClientID(), rental.getEmployeeID(), rental.getShopID());
         rentalDto.setId(rental.getId());
 
         return rentalDto;

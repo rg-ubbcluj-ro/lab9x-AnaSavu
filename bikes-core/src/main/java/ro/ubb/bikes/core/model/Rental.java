@@ -15,4 +15,5 @@ public class Rental extends BaseEntity<Long> {
     private Long bikeID;
     private Long clientID;
     private Long employeeID;
+    private Long shopID;
 }

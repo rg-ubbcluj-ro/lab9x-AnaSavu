@@ -42,5 +42,10 @@ public class RentalValidator implements Validator<Rental>{
         //employeeID
         Optional<Long> optionalEmployeeID = Optional.of(entity.getEmployeeID());
         optionalEmployeeID.filter(x -> x<= 0).ifPresent(e -> {throw  new ValidatorException("EmployeeID must be greater than 0!");});
+
+        //shopID
+        Optional<Long> optionalShopID = Optional.of(entity.getShopID());
+        optionalShopID.filter(x -> x<= 0).ifPresent(e -> {throw  new ValidatorException("ShopID must be greater than 0!");});
+
     }
 }
