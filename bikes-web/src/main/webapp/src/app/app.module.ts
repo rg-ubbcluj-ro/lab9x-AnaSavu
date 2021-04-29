@@ -31,6 +31,8 @@ import { ClientNewComponent } from './clients/client-new/client-new.component';
 import { ClientUpdateComponent } from './clients/client-update/client-update.component';
 import { ShopNewComponent } from './shops/shop-new/shop-new.component';
 import { ShopUpdateComponent } from './shops/shop-update/shop-update.component';
+import { EmployeeNewComponent } from './employees/employee-new/employee-new.component';
+import { EmployeeUpdateComponent } from './employees/employee-update/employee-update.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { ShopUpdateComponent } from './shops/shop-update/shop-update.component';
     ClientNewComponent,
     ClientUpdateComponent,
     ShopNewComponent,
-    ShopUpdateComponent
+    ShopUpdateComponent,
+    EmployeeNewComponent,
+    EmployeeUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@
 <ol class="employees">
   <li *ngFor="let employee of employees"
       [class.selected]="employee === selectedEmployee"
+      (dblclick)="onDoubleSelect(employee)"
       (click)="onSelect(employee)">
     {{employee.id}}
   </li>
@@ -12,5 +13,7 @@
     ID {{selectedEmployee.id}} was selected
   </h2>
   <button (click)="gotoDetail()">View Details</button>
-
+  <button (click)="deleteEmployee(selectedEmployee.id)">Delete Employee</button>
+  <button (click)="updateEmployee()">Update Employee</button>
+  <button (click)="sortEmployees()">Sort Employees</button>
 </div>
