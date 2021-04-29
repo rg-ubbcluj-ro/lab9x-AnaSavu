@@ -1,9 +1,18 @@
 <h2>Add Bike</h2>
 <form #myForm='ngForm' (ngSubmit)="onSubmitTemplateBased()">
-  <label>Serial Number: <input type="text" [(ngModel)]="bike.serialNumber" required/></label><br />
-  <label>Manufacturer: <input type="text" [(ngModel)]="bike.manufacturer" required /></label><br />
-  <label>Color: <input type="text" [(ngModel)]="bike.color" required/></label><br />
-  <label>Price: <input type="text" [(ngModel)]="bike.price" required/></label><br />
+  <label>Serial Number: <input type="text" [(ngModel)]="bike.serialNumber" name="serialNumber" placeholder="serialNumber" #serialNumber="ngModel" required minlength=1/></label><br />
+  <div *ngIf="serialNumber.invalid && (serialNumber.dirty || serialNumber.touched) && serialNumber.errors" style="color: red">
+      *The serialNumber can't be null!
+  </div>
+  <label>Manufacturer: <input type="text" [(ngModel)]="bike.manufacturer" name="manufacturer" placeholder="manufacturer" #manufacturer="ngModel" required minlength=1/></label><br />
+  <div *ngIf="manufacturer.invalid && (manufacturer.dirty || manufacturer.touched)" style="color: red">
+    *The manufacturer can't be null!
+  </div>
+  <label>Color: <input type="text" [(ngModel)]="bike.color" name="color" placeholder="color" #color="ngModel" required minlength=1/></label><br />
+  <div *ngIf="color.invalid && (color.dirty || color.touched)" style="color: red">
+    *The color can't be null!
+  </div>
+  <label>Price: <input type="text" [(ngModel)]="bike.price" name="price" placeholder="price" #price="ngModel" required minlength=1></label><br />
   <button type="submit">Save</button>
   <button (click)="goBack()">Back</button>
 </form>
