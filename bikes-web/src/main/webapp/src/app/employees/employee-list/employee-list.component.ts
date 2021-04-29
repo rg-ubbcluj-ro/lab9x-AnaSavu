@@ -24,7 +24,6 @@ export class EmployeeListComponent implements OnInit {
     this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
   }
 
-
   getEmployees() {
     this.employeeService.getEmployees().subscribe(
       employees => this.employees = employees,
@@ -54,6 +53,11 @@ export class EmployeeListComponent implements OnInit {
   }
 
   sortEmployees() {
+    this.employees.sort((e1, e2) => e1.position > e2.position ? 1 : -1);
+  }
 
+  filterEmployees(workedHours: string) {
+    let empl: Array<Employee> = this.employees.filter((e1) => e1.workedHours === Number(workedHours));
+    this.employees = empl;
   }
 }

@@ -16,4 +16,9 @@
   <button (click)="deleteEmployee(selectedEmployee.id)">Delete Employee</button>
   <button (click)="updateEmployee()">Update Employee</button>
   <button (click)="sortEmployees()">Sort Employees</button>
+  <label>Worked Hours:
+    <input #workedHours />
+  </label>
+  <br />
+  <button (click)="filterEmployees(workedHours.value)">Filter Employees</button>
 </div>

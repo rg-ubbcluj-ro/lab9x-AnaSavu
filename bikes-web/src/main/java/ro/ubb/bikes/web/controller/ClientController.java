@@ -78,8 +78,8 @@ public class ClientController {
                 ));
     }
 
-    @RequestMapping(value = "/clients/filter", method = RequestMethod.GET)
-    List<ClientDto> filterClientsByName(@RequestParam String name) {
+    @RequestMapping(value = "/clients/filter/{name}", method = RequestMethod.GET)
+    List<ClientDto> filterClientsByName(@PathVariable String name) {
         log.trace("filterClientsByName - method entered: name={}", name);
 
         List<Client> clients = clientService.filter(name);

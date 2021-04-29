@@ -42,9 +42,7 @@ export class ClientService {
   }
 
   filterClients(name: string): Observable<Client[]> {
-    const param = new HttpParams();
-    param.set('', name);
-    return this.httpClient.get<Array<Client>>(this.clientsUrl + '/filter', {params: param});
+    return this.httpClient.get<Array<Client>>(this.clientsUrl + '/filter/' + name);
   }
 }
 

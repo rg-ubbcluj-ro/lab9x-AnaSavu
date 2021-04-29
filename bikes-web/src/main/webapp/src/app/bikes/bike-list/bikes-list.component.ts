@@ -55,6 +55,4 @@ export class BikesListComponent implements OnInit {
     this.router.navigate(['bike/update', this.selectedBike.id]);
   }
 
-  sortBikes():void {
-  }
 }
